@@ -1,2 +1,2 @@
 # Universe-simulator
-star / galaxy simulation in 3D
+star / galaxy simulation in 2D
