@@ -6,7 +6,6 @@
 from tkinter import *
 import numpy as np
 import math
-import copy
 
 # FILES IMPORTS
 from star import Star
@@ -29,8 +28,7 @@ def update():
         for j in range(len(stars)):
             if i == stars[j]:
                 f.append([0, [0, 0]])
-                f[j][0] = 0
-                f[j][1] = [0, 0]
+                f[j] = [0, [0, 0]]
                 j+=1
             else:
                 f.append([0, [0, 0]])
@@ -58,9 +56,9 @@ def update():
     window.after(DELAY, update)
 
 def graphics():
-    print("graphics")
     canvas.delete("all")
     for i in stars:
+        print(i.radius)
         canvas.create_oval(i.x, i.y, i.x + 5, i.y + 5, fill=i.color)
     window.after(DELAY, graphics)
 
@@ -77,7 +75,7 @@ if __name__ == "__main__":
     stars = []
 
     for i in range(STAR_AMOUNT):
-        stars.append(Star(np.random.randint(0, 1000), np.random.randint(0, 1000), np.random.randint(5000, 50000), np.random.randint(1, 100)))
+        stars.append(Star(np.random.randint(0, 1000), np.random.randint(0, 1000), np.random.randint(5000, 50000), np.random.randint(1, 100)), "yellow")
 
     update()
 
